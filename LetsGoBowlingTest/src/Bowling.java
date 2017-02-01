@@ -8,11 +8,12 @@ public class Bowling {
 		
 	}
 	
-	public void addThrowStrike(){
-		
-	}
 	
 	public int getCurrentFrameNum(){
+		return -1;
+	}
+	
+	public int getFrameScore(int number){
 		return -1;
 	}
 }
