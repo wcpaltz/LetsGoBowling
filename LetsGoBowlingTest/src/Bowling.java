@@ -6,7 +6,7 @@ public class Bowling {
 	
 	private class Frame{
 		
-		int t1, t2;
+		int t1, t2, frameScore;
 		
 		private Frame(int t1, int t2){
 			this.t1 = t1;
@@ -33,20 +33,30 @@ public class Bowling {
 		frameNum = 0;
 	}
 	
-	public int getFrameScore(int frameNum){
+	public int getFrameScore(int frameNum){ 
 		return -1;
 	}
 	
 	public int getTotalScore(){
-		return -1;
+		
+		int finalScore = 0;
+		
+		if (scoresheet[0] == null) return finalScore;
+		
+		for(int i = frameNum; i > -1; i --){
+			finalScore += getFrameScore(i);
+		}
+		
+		return finalScore;
 	}
 	
-	public void addThrow(int first, int second){
+	public void addThrow(int first, int second){ //adds new Frame & increments
 		scoresheet[frameNum] = new Frame(first, second);
+		frameNum++;
 	}
 	
 	public int getCurrentFrameNum(){
-		return frameNum + 1;
+		return frameNum + 1; //0 to 1 index system
 	}
 	
 }
